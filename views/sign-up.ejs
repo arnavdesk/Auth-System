@@ -1,1 +1,66 @@
-<h2>Sign Up</h2>
+<link rel="stylesheet" href="/css/sign-up.css">
+<main>
+    <section class="main-section">
+        <div class="main-heading-div">
+            <p>Sign up to Authy</p>
+        </div>
+
+        <div class="social-login-div">
+            <div id="my-signin2" class="g-signin2">
+            </div>
+        </div>
+
+        <div class="login-form-div">
+            <label class="option-text lgray-color"> or use your email account to register :</label>
+            <div  class="lgray-color input-bar-container">
+                <i class="fas fa-user-alt"></i>
+                <input type="text" name="name" class="input-bar" placeholder="Name">
+            </div>
+            <div  class="lgray-color input-bar-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" class="input-bar" placeholder="Email">
+            </div>
+            <div class="lgray-color input-bar-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" class="input-bar" placeholder="Password">
+            </div>
+            <div class="lgray-color input-bar-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirm-password" class="input-bar" placeholder="Confirm Password">
+            </div>
+
+            <div class="buttons-container">
+               <button class="btn">SIGN UP</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="aside-section">
+        <div class="details">
+            <h2>Already A Member?</h2>
+            <p>To keep connected please <br> login with your details!</p>
+        </div>
+        <div>
+            <a href="/sign-in"><button class="btn-2">SIGN IN</button></a>
+        </div>
+    </section>
+
+</main>
+
+<script src="https://kit.fontawesome.com/c2e4f2d141.js" crossorigin="anonymous"></script>
+
+
+<script>
+    function renderButton() {
+     gapi.signin2.render('my-signin2', {
+       'scope': 'profile email',
+       'width': 240,
+       'height': 50,
+       'longtitle': true,
+       'theme': 'light',
+     });
+   }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
