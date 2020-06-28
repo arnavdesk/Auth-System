@@ -21,4 +21,11 @@ router.get("/auth/google", passport.authenticate("google",{scope:["profile","ema
 
 router.get("/auth/google/callback", passport.authenticate("google",{ failureRedirect: "/sign-in" }),usersController.createSession);
 
+router.get("/profile",passport.checkAuthentication,usersController.profile);
+
+router.post("/update",passport.checkAuthentication,usersController.update);
+
+router.post("/reset-password",passport.checkAuthentication,usersController.resetPassword);
+
+
 module.exports = router;
