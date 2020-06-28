@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 const sassMiddleware = require("node-sass-middleware")
-// const flash = require("connect-flash");
-// const customMware = require("./config/middleware");
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
 
 app.use(sassMiddleware({
     src: "./assets/scss",
@@ -20,20 +20,20 @@ app.use(sassMiddleware({
 app.use(express.urlencoded());
 
 // cookie parser
-// app.use(cookieParser());
+app.use(cookieParser());
 
-// // MongoDB
-// const db = require("./config/mongoose");
+// MongoDB
+const db = require("./config/mongoose");
 
 // session-cookie 
-// const session = require("express-session");
+const session = require("express-session");
 
 // Mongo store
-// const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session);
 
 // passport
-// const passport = require("passport");
-// const passportLocal = require("./config/passport-local-strategy");
+const passport = require("passport");
+const passportLocal = require("./config/passport-local-strategy");
 
 
 // Static files
@@ -52,32 +52,32 @@ app.set("view engine", "ejs");
 app.set("views", "./views")
 
 // mongo store is being used to store session cookie in the db
-// app.use(session({
-//     name: "Codeial",
-//     // ToDo Change this secret before deployment in production-mode
-//     secret: "TheSecretKeyIsHiddenSomeWhereInThisDirectory",
-//     saveUninitialized: false,
-//     resave: false,
-//     cookie: {
-//         maxAge: (1000 * 60 * 100),
-//     },
-//     store: new MongoStore({
-//         mongooseConnection: db,
-//         autoRemove: "disabled"
-//     },
-//         function (err) {
-//             console.log(err || "connect-mongo setup is established!")
-//         }
-//     )
-// }))
+app.use(session({
+    name: "Auth",
+    // ToDo Change this secret before deployment in production-mode
+    secret: "TheSecretKeyIsHiddenSomeWhereInThisDirectory",
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100),
+    },
+    store: new MongoStore({
+        mongooseConnection: db,
+        autoRemove: "disabled"
+    },
+        function (err) {
+            console.log(err || "connect-mongo setup is established!")
+        }
+    )
+}))
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use(flash());
-// app.use(customMware.setFlash);
+app.use(flash());
+app.use(customMware.setFlash);
 
-// app.use(passport.setAuthenticatedUser)
+app.use(passport.setAuthenticatedUser)
 
 
 

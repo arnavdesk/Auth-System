@@ -9,26 +9,27 @@
             <div id="my-signin2" class="g-signin2">
             </div>
         </div>
+        <form action="/users/create-session" method="POST">
+            <div class="login-form-div">
+                <label class="option-text lgray-color"> or use your email account :</label>
+                <div  class="lgray-color input-bar-container">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" class="input-bar" placeholder="Email" required >
+                </div>
+                <div class="lgray-color input-bar-container">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" class="input-bar" placeholder="Password" required>
+                </div>
 
-        <div class="login-form-div">
-            <label class="option-text lgray-color"> or use your email account :</label>
-            <div  class="lgray-color input-bar-container">
-                <i class="fas fa-envelope"></i>
-                <input type="email" name="email" class="input-bar" placeholder="Email">
-            </div>
-            <div class="lgray-color input-bar-container">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" class="input-bar" placeholder="Password">
-            </div>
+                <div class="forgot-password-div">
+                    <a>Forgot your password?</a>
+                </div>
 
-            <div class="forgot-password-div">
-                <a>Forgot your password?</a>
+                <div class="buttons-container">
+                    <button class="btn">SIGN IN</button>
+                </div>
             </div>
-
-            <div class="buttons-container">
-                <button class="btn">SIGN IN</button>
-            </div>
-        </div>
+         </form>
     </section>
 
     <section class="aside-section">
