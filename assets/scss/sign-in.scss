@@ -28,7 +28,22 @@ main{
         }
         
     }
-
+    .google-btn-container{
+        height: 42px;
+        width: 186px;
+        #google-btn{
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            margin-left: -2px;
+            margin-top: -2px;
+        }
+        
+    }
+    .google-btn-container:hover{
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
     .login-form-div{
         padding: 5px;
         display: flex;
