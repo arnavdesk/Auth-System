@@ -27,10 +27,8 @@ Tech Stack : HTML, CSS, JS, Node.js, Express.js, Passport.js
 1. Clone this project
 2. Start by installing npm and mongoDB if you don't have them already.
 3. Run the Mongo Server.
-4. Create a google login credentials and subsequently a google Oauth ID. Refer this : https://developers.google.com/identity/protocols/oauth2
-<h5>Don't share these crednetials with anyonne</h5>
-5. Create a dummy email id which can be used by mailer. (You have to make your dummy account less secure by going into mail settings).
-<h5>Try to avoid your personal mail id</h5>
+4. Create a google login credentials and subsequently a google Oauth ID. Refer this : https://developers.google.com/identity/protocols/oauth2 .Don't share these crednetials with anyone.
+5. Create a dummy email id which can be used by mailer. (You have to make your dummy account less secure by going into mail settings). Try to avoid your personal mail id.
 6. Navigate to Project Directory by :
 ```
 cd Auth-System
