@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 // Schema
 const accessTokenSchema = mongoose.Schema({
-    access_token:{
+    access_token: {
         type: String,
         required: true
     },
@@ -12,9 +12,9 @@ const accessTokenSchema = mongoose.Schema({
         ref: "User",
         required: true
     },
-    valid:{
-        type:Boolean,
-        required:true
+    valid: {
+        type: Boolean,
+        required: true
     }
 }, {
     timestamps: true

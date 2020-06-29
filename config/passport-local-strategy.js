@@ -2,39 +2,39 @@ const passport = require("passport");
 const localStrategy = require("passport-local").Strategy;
 const User = require("../models/user");
 const bcrypt = require("bcrypt")
-const saltRounds =10;
+const saltRounds = 10;
 
 // apply local stragegy and handle case for signing in and out
 passport.use(new localStrategy({
     usernameField: "email",
-    passReqToCallback:true
+    passReqToCallback: true
 },
-    function(request,email,password,done){
+    function (request, email, password, done) {
         User.findOne({ email: email }, function (err, user) {
             if (err) {
                 console.log("error finding in user --> passport");
-                request.flash("error","Internal Error");
+                request.flash("error", "Internal Error");
                 return done(err);
             }
             if (!user) {
                 console.log("Invalid username password");
-                request.flash("error","Invalid Username or Password!");
+                request.flash("error", "Invalid Username or Password!");
                 return done(null, false);
             }
-            else{
+            else {
                 console.log(password);
                 console.log(user);
-                bcrypt.compare(password, user.password, function(err, result) {
+                bcrypt.compare(password, user.password, function (err, result) {
                     if (!result) {
                         console.log("Invalid username password");
-                        request.flash("error","Invalid Username or Password!");
+                        request.flash("error", "Invalid Username or Password!");
                         return done(null, false);
                     }
                     else {
                         return done(null, user);
                     }
                 });
-            } 
+            }
         })
     }
 ));
@@ -65,7 +65,7 @@ passport.checkAuthentication = function (request, response, next) {
     }
     else {
         // if user is not signed in then redirect
-        request.flash("error","Please Sign In!");
+        request.flash("error", "Please Sign In!");
         return response.redirect("/sign-in");
     }
 }
@@ -73,7 +73,7 @@ passport.checkAuthentication = function (request, response, next) {
 passport.checkSessionPresent = function (request, response, next) {
     // if user is signed in then don't go to sign in/up page
     if (request.isAuthenticated()) {
-        request.flash("error","Already Signed In!");
+        request.flash("error", "Already Signed In!");
         return response.redirect("/");
     }
     else {

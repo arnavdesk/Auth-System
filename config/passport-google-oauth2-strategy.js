@@ -13,7 +13,7 @@ dotenv.config();
 // tell passport to use a new strategy for google log in!
 passport.use(new googleStrategy({
     clientID: process.env.CLIENT_ID,
-    clientSecret : process.env.CLIENT_SECRET,
+    clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://localhost:8000/users/auth/google/callback",
 },
     function (accessToken, refreshToken, profile, done) {
@@ -38,9 +38,9 @@ passport.use(new googleStrategy({
                     email: profile.emails[0].value,
                     password: crypto.randomBytes(20).toString("hex"),
                     avatar: profile.photos[0].value,
-                    auth:"google"
+                    auth: "google"
                 }, function (err, user) {
-                    if(err){
+                    if (err) {
                         console.log("error in creating user");
                         return done(err);
                     }
@@ -53,4 +53,4 @@ passport.use(new googleStrategy({
 
 ));
 
-module.exports=passport;
+module.exports = passport;
