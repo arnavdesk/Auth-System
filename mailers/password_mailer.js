@@ -1,8 +1,8 @@
 const mailer = require("../config/nodemailer");
 const dotenv = require('dotenv');
-// Exporting a method
 
 
+// method for sending forgot password mail
 module.exports.forgotPassMail = (user, resetLink) => {
     let htmlString = mailer.renderTemplate({user:user,reset_link:resetLink},'/security-reset.ejs');
     mailer.transporter.sendMail({
@@ -20,6 +20,7 @@ module.exports.forgotPassMail = (user, resetLink) => {
     })
 }
 
+// method for sending password changed mail
 module.exports.passwordChangedMail = (user, resetLink) => {
     let htmlString = mailer.renderTemplate({user:user,reset_link:resetLink},'/password-changed.ejs');
     mailer.transporter.sendMail({

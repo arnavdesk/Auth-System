@@ -1,11 +1,16 @@
+// import all the dependencies
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 const sassMiddleware = require("node-sass-middleware")
+
+// for showing notifications
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
+
+// for goolge OAauth-2
 const passportGoogle = require("./config/passport-google-oauth2-strategy");
 
 app.use(sassMiddleware({
@@ -75,9 +80,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// for sowing notifications
 app.use(flash());
 app.use(customMware.setFlash);
 
+// for setting current user 
 app.use(passport.setAuthenticatedUser)
 
 

@@ -1,7 +1,12 @@
+// require them
 const passport = require("passport");
 const googleStrategy = require("passport-google-oauth").OAuth2Strategy;
+
+// used for generating random strings
 const crypto = require("crypto");
 const User = require("../models/user");
+
+// for getting keys from env
 const dotenv = require('dotenv');
 dotenv.config();
 

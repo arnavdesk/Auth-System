@@ -1,9 +1,20 @@
+// require dependencies
+
+// models
 const User = require("../models/user");
 const AccessToken = require("../models/access-tokens");
+
+// for random keys and encryption
 const crypto = require("crypto");
-const bcrypt = require("bcrypt")
-const passwordMailer = require("../mailers/password_mailer");
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
+
+// mailer
+const passwordMailer = require("../mailers/password_mailer");
+
+
+
+// Create a user cross checking password, confirm password and user already exists
 module.exports.create = async function (request, response) {
     if (request.body["password"] != request.body["confirm-password"]) {
         request.flash("error", "Password and confirm password must be same!");
@@ -32,22 +43,26 @@ module.exports.create = async function (request, response) {
     }
 }
 
+// Create a session
 module.exports.createSession = function (request, response) {
     request.flash("success", "Logged In Successfully!");
     console.log("Session created");
     return response.redirect("/");
 }
 
+// destroy a session
 module.exports.destroySession = function (request, response) {
     request.flash("success", "You have logged Out!");
     request.logout();
     return response.redirect("/sign-in");
 }
 
+// render profile page after logging in
 module.exports.profile = function (request, response) {
     return response.render("profile");
 }
 
+// update profile
 module.exports.update = async function (request, response) {
     try {
         if (request.query.id == request.user.id) {
@@ -72,6 +87,7 @@ module.exports.update = async function (request, response) {
     }
 }
 
+// reset passowrd after entering old password
 module.exports.resetPassword = async function (request, response) {
     console.log(request.body);
     try {
@@ -108,11 +124,13 @@ module.exports.resetPassword = async function (request, response) {
     }
 }
 
+// render forgot password page
 module.exports.forgotPassword = function (request, response) {
     return response.render("forgot-password");
 }
 
 
+// send mail after user enters mail establishing user identity
 module.exports.sendMailForgot = async function (request, response) {
     console.log(request.body.email);
     try {
@@ -138,9 +156,9 @@ module.exports.sendMailForgot = async function (request, response) {
 
 }
 
-
+// rendering reset password page with access token using mailer and not password
 module.exports.securityResetPassword = async function (request, response) {
-    if(request.query.at==null){
+    if (request.query.at == null) {
         request.flash("error", "Unauthorized! Link Expired");
         return response.redirect("/");
     }
@@ -157,7 +175,7 @@ module.exports.securityResetPassword = async function (request, response) {
 
 }
 
-
+// reset password with access token using mailer and not password
 module.exports.resetPasswordByAcessToken = async function (request, response) {
     try {
         if (request.body["password"] != request.body["confirm-password"]) {

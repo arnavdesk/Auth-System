@@ -20,6 +20,7 @@ const accessTokenSchema = mongoose.Schema({
     timestamps: true
 })
 
+// export schema
 const AccessTokens = mongoose.model("AccessTokens", accessTokenSchema);
 
 module.exports = AccessTokens;

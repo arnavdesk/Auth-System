@@ -4,6 +4,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt")
 const saltRounds =10;
 
+// apply local stragegy and handle case for signing in and out
 passport.use(new localStrategy({
     usernameField: "email",
     passReqToCallback:true

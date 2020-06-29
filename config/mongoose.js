@@ -1,5 +1,7 @@
+// require it
 const mongoose = require("mongoose");
 
+// connect with DB
 mongoose.connect("mongodb://localhost/auth-system");
 
 const db = mongoose.connection;
@@ -12,6 +14,7 @@ db.once("open", function () {
 })
 
 
+// export db
 module.exports = db;
 
 
