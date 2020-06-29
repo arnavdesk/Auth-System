@@ -27,5 +27,14 @@ router.post("/update",passport.checkAuthentication,usersController.update);
 
 router.post("/reset-password",passport.checkAuthentication,usersController.resetPassword);
 
+router.get("/forgot-password",passport.checkSessionPresent,usersController.forgotPassword);
+
+router.post("/send-mail-forgot",passport.checkSessionPresent,usersController.sendMailForgot);
+
+router.get("/security-reset-password",usersController.securityResetPassword);
+
+router.post("/security-reset-password",usersController.resetPasswordByAcessToken);
+
+
 
 module.exports = router;

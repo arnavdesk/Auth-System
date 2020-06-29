@@ -92,10 +92,17 @@ main{
             margin-top: 10px;
             margin-bottom: 30px;
             a{
-                border-bottom: 1px solid lightgray;
+                text-decoration: none;
+                cursor: pointer;
+                color: gray;
+                border-bottom: 1px solid gray;
+            }
+            a:hover{
+                border-bottom: 1px solid black;
             }
         }
         .btn{
+            cursor: pointer;
             background-color: $primary-color;
             color: white;
             border-radius: 20px;
@@ -133,6 +140,7 @@ main{
         }
     }
     .btn-2{
+        cursor: pointer;
         background-color: $primary-color;
         color: white;
         border-radius: 20px;

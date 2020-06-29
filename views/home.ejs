@@ -15,6 +15,8 @@
                 <p>Email : <%=user.email%></p>
                 <%if(user.auth=="local"){ %>
                     <p>Head over to your <a href="/users/profile">profile</a> to edit!</p>
+                <%}else{%>
+                    <p><a href="/users/profile">Profile</a></p>
                 <%}%>
             </div> 
         <%}%>  

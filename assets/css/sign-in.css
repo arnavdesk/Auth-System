@@ -97,10 +97,18 @@ main {
 }
 
 .main-section .login-form-div .forgot-password-div a {
-  border-bottom: 1px solid lightgray;
+  text-decoration: none;
+  cursor: pointer;
+  color: gray;
+  border-bottom: 1px solid gray;
+}
+
+.main-section .login-form-div .forgot-password-div a:hover {
+  border-bottom: 1px solid black;
 }
 
 .main-section .login-form-div .btn {
+  cursor: pointer;
   background-color: #4DB6AC;
   color: white;
   border-radius: 20px;
@@ -142,6 +150,7 @@ main {
 }
 
 .aside-section .btn-2 {
+  cursor: pointer;
   background-color: #4DB6AC;
   color: white;
   border-radius: 20px;
