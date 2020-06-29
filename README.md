@@ -28,12 +28,14 @@ Tech Stack : HTML, CSS, JS, Node.js, Express.js, Passport.js
 2. Start by installing npm and mongoDB if you don't have them already.
 3. Run the Mongo Server.
 4. Create a google login credentials and subsequently a google Oauth ID. Refer this : https://developers.google.com/identity/protocols/oauth2
-5. Create a dummy email id which can be used by mailer.
+<h5>Don't share these crednetials with anyonne</h5>
+5. Create a dummy email id which can be used by mailer. (You have to make your dummy account less secure by going into mail settings).
+<h5>Try to avoid your personal mail id</h5>
 6. Navigate to Project Directory by :
 ```
 cd Auth-System
 ```
-7. Edit .env-example file and add your own credentials(google client id and google client secret and gmail email password in it and then change it's name to .env
+7. Edit .env-example file and add your own credentials(google client id and google client secret and gmail email password in it) and then change it's name to .env
 8. run following commands :
 ```
 npm install 
@@ -46,6 +48,7 @@ npm start or node index.js
 3. Mailer for security ie, if a user changes password a mail is sent with access token which can be used by them to restore account if compromised.
 4. Proper Notifications using noty.
 5. Option to edit profile and reset password if authenticated manually.
+6. Option to restore password if the user has forgotton it. (Please check the spam and if the mail is in spam unspam it and you'll be able to access link).
 
 
 # Directory Structure and flow of The Code
